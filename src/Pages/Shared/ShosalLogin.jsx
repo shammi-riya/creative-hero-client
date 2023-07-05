@@ -22,7 +22,7 @@ const ShosalLogin = () => {
     
             postUser(userInfo)
     
-            console.log("User object:", user);
+         
             navigate(from, { replace: true });
           })
           .catch((error) => {

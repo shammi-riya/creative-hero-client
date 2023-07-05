@@ -3,9 +3,9 @@ import { toast } from "react-toastify";
 
 
 export const postUser = (userInfo)=>{
-    console.log(userInfo);
+   
     axios
-    .post("http://localhost:5000/user", { userInfo })
+    .post("https://creative-hero-surver.vercel.app/user", { userInfo })
     .then((res) => {
         console.log(res.data);
         if(res.data.insertedId){

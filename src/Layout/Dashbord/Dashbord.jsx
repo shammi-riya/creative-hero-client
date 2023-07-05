@@ -1,13 +1,19 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import useAuth from "../../Hook/useAuth";
 import { CgProfile } from 'react-icons/cg';
+import { FcFeedback } from 'react-icons/fc';
 import { FaBookmark, FaArrowRight, FaHome, FaBook } from 'react-icons/fa';
 import { CiSettings } from 'react-icons/ci';
+import useAdmin from "../../Hook/useAdmin";
+import useInstractor from "../../Hook/useInstractor";
 
 
 
 const Dashbord = () => {
-    const { user } = useAuth()
+    const { user } = useAuth();
+   
+    const [isInstractor] = useInstractor();
+    const [isadmin] = useAdmin();
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -35,9 +41,24 @@ const Dashbord = () => {
 
 
                     <ul className="menu  p-4 w-90  h-full text-xl text-left  text-white">
-                        {/* Sidebar content here */}
+                        {
+                            isadmin ?( <>
+                            <li className="md:px-4 md:py-2 ">
+                            <NavLink to='/dashbord/managclass'
+                                className={({ isActive }) =>
+                                    isActive ? 'text-[#5588d4]' : ''}><span><FaBook></FaBook></span> managclass</NavLink></li>
 
-                        <li className="md:px-4 md:py-2 ">
+
+                            <li className="md:px-4 md:py-2 ">
+                            <NavLink to='/dashbord/managUsers'
+                                className={({ isActive }) =>
+                                    isActive ? 'text-[#5588d4]' : ''}><span><FaBook></FaBook></span> managUsers</NavLink></li>
+
+                            </>):
+
+
+                            (isInstractor)? <>
+                            <li className="md:px-4 md:py-2 ">
                             <NavLink to='/dashbord/profile'
                                 className={({ isActive }) =>
                                     isActive ? 'text-[#5588d4]' : ''}><span><CgProfile></CgProfile></span> My Profile</NavLink></li>
@@ -66,6 +87,25 @@ const Dashbord = () => {
                                 className={({ isActive }) =>
                                     isActive ? 'text-[#061E43]' : ''}>  <span><FaBook></FaBook></span> Enrolld Class</NavLink></li>
                         <div className="divider"></div>
+   
+    
+                            
+                            </>:
+                            <>
+                             <li className="md:px-4 md:py-2 ">
+                            <NavLink to='/dashbord/select'
+                                className={({ isActive }) =>
+                                    isActive ? 'text-[#061E43]' : ''}>  <span><FaBook></FaBook></span> selectclass</NavLink></li>
+                             <li className="md:px-4 md:py-2 ">
+                            <NavLink to='/dashbord/enroled'
+                                className={({ isActive }) =>
+                                    isActive ? 'text-[#061E43]' : ''}>  <span><FaBook></FaBook></span> enrolldclass</NavLink></li>
+                             <li className="md:px-4 md:py-2 ">
+                            <NavLink to='/dashbord/feedback'
+                                className={({ isActive }) =>
+                                    isActive ? 'text-[#061E43]' : ''}>  <span><FcFeedback></FcFeedback></span>Feedback</NavLink></li></> 
+                        }
+                    
 
                         <li className="md:px-4 md:py-2 "><Link to='/'><span><FaHome></FaHome></span> Home</Link></li>
                         <div className="divider"></div>

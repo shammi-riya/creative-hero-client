@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import login from '../assets/login.avif'
 import { AuthContext } from '../Provider/Authprovider';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ShosalLogin from './Shared/ShosalLogin';
 
 const Login = () => {
@@ -79,6 +79,7 @@ const from = location.state?.from?.pathname || "/";
                         </a>
                     </div>
                     <p className='text-xl text-red-500'>{fireBaseErr}</p>
+                 <p>you have new to website    <Link to='/regester'>regester</Link></p>
                 </form>
             </div>
         </div>

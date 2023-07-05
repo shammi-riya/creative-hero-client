@@ -1,7 +1,10 @@
 
 import { createContext, useEffect, useState } from "react";
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../Firebase/firebase.config";
+
+
+import axios from "axios";
 
 
 export const AuthContext = createContext(null)
@@ -11,6 +14,7 @@ const AuthProvider = ({ children }) => {
     const githubProvider = new GithubAuthProvider();
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+   
 
 
 
@@ -36,7 +40,7 @@ const AuthProvider = ({ children }) => {
 
     const creteGithubUser = () => {
         setLoading(true)
-        return signInWithPopup(auth,githubProvider)
+        return signInWithPopup(auth, githubProvider)
     }
 
 
@@ -44,7 +48,20 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
-            setLoading(false);
+            if (currentUser) {
+             axios.post('https://creative-hero-surver.vercel.app/jwt',{email:currentUser?.email})
+             .then(data=>{
+               
+                localStorage.setItem('access-token',data.data.token)
+                setLoading(false);
+             })
+            }else{
+                localStorage.removeItem('access-token')
+            }
+
+
+           
+            
         });
         return () => {
             return unsubscribe();
@@ -53,16 +70,24 @@ const AuthProvider = ({ children }) => {
 
 
 
-   const forgetPassword = (email)=>{
-     setLoading(true)
-     return sendPasswordResetEmail(auth,email)
-   
-     
-   }
-
-    const logOut = ()=>{
+    const forgetPassword = (email) => {
         setLoading(true)
-      return  signOut(auth)
+        return sendPasswordResetEmail(auth, email)
+
+
+    }
+
+    const logOut = () => {
+        setLoading(true)
+        return signOut(auth)
+    }
+
+
+
+    const updateUserProfile = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: photo
+        });
     }
 
     const authInfo = {
@@ -73,13 +98,14 @@ const AuthProvider = ({ children }) => {
         loginUser,
         createGogoolUser,
         creteGithubUser,
-        forgetPassword ,
+        forgetPassword,
+        updateUserProfile ,
         logOut
     }
 
 
     return (
-        <AuthContext.Provider  value={authInfo}>
+        <AuthContext.Provider value={authInfo}>
             {children}
         </AuthContext.Provider >
     );

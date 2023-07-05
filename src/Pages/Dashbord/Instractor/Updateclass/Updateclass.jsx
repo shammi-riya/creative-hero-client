@@ -27,7 +27,7 @@ const Updateclass = () => {
           type: data.type
         };
     
-        fetch(`http://localhost:5000/update/${_id}`, {
+        fetch(`https://creative-hero-surver.vercel.app/update/${_id}`, {
           method: "PUT",
           headers: {
             'content-type': 'application/json'

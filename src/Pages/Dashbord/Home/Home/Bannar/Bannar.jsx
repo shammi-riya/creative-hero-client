@@ -1,5 +1,7 @@
-import Button from '../../../../Component/Button';
-import bannar from '../../../../assets/banner_img.png'
+
+import Button from '../../../../../Component/Button';
+
+import bannar from '../../../../../assets/banner_img.png'
 const Bannar = () => {
     return (
        <div className="px-20 py-16 min-h-screen relative bg-gray-200">
@@ -9,6 +11,7 @@ const Bannar = () => {
          <h1 className='text-6xl font-bold '>Learn <span className='text-blue-800'>skill</span> from <br /> our top instractor</h1>
          <p className='text-md'>Borem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattisBorem ipsum dolor sit amet consectetur adipiscing area we followelit.</p>
         <div >
+      
         <Button>Explore Now</Button>
        
         </div>

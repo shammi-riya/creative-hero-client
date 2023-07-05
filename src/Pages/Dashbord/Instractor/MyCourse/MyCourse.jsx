@@ -2,15 +2,17 @@ import { useEffect, useState } from "react";
 import useAuth from "../../../../Hook/useAuth";
 import axios from "axios";
 import MycourseCardd from "./MycourseCardd";
+import useAxiosSecure from "../../../../Hook/useAxiosSecuire";
 
 const MyCourse = () => {
   const { user } = useAuth();
+  const [axiosSecure] = useAxiosSecure()
   const [mycourse,setMyCourse] = useState([])
-console.log(mycourse);
+
   useEffect(() => {
     if (user) {
-      axios
-        .get("http://localhost:5000/mycourse", {
+      axiosSecure
+        .get("/mycourse", {
           params: { email: user.email },
         })
         .then(function (response) {
@@ -22,7 +24,7 @@ console.log(mycourse);
           console.log(error);
         });
     }
-  }, [user]);
+  }, [user,axiosSecure]);
 
   return (
     <div className="grid grid-cols-4 gap-6 w-full px-12">

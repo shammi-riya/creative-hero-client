@@ -1,14 +1,32 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/Authprovider";
+import { FaShoppingCart } from "react-icons/fa";
+import axios from "axios";
 
 
 const Navber = () => {
 	const { user, logOut } = useContext(AuthContext);
-	
-	console.log(user);
+    const [selectCourse,setSelectCourse] = useState('')
+	useEffect(() => {
+        if (user) {
+            axios
+                .get("https://creative-hero-surver.vercel.app/selectcourse", {
+                    params: { email: user.email },
+                })
+                .then(function (response) {
+                    // handle success
+                    setSelectCourse(response.data);
+                    console.log(response.data);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                });
+        }
+    }, [user]);
 
-	
+
 
 
 	const handleLogOut = () => {
@@ -34,19 +52,30 @@ const Navber = () => {
 								isActive ? 'text-[#061E43]' : ''
 							}>Home</NavLink></li>
 							<li className="md:px-4 md:py-2 hover:text-[#061E43]"><NavLink to='/dashbord'
+								className={({ isActive }) =>
+									isActive ? 'text-[#061E43]' : ''
+								}>Dashbord</NavLink></li>
+							<li className="md:px-4 md:py-2 hover:text-[#061E43]"><NavLink to='/course'
+								className={({ isActive }) =>
+									isActive ? 'text-[#061E43]' : ''
+								}>course</NavLink></li>
+							<li className="md:px-4 md:py-2 hover:text-[#061E43]"><NavLink to="/instractor"
 							className={({ isActive }) =>
 								isActive ? 'text-[#061E43]' : ''
-							}>Dashbord</NavLink></li>
-							<li className="md:px-4 md:py-2 hover:text-[#061E43]"><NavLink className={({ isActive }) =>
-								isActive ? 'text-[#061E43]' : ''
-							}>Class</NavLink></li>
-							<li className="md:px-4 md:py-2 hover:text-[#061E43]"><NavLink className={({ isActive }) =>
-								isActive ? 'text-[#061E43]' : ''
 							}>Instractor</NavLink></li>
-							
-							
 
-							
+							<li className="relative md:px-4 md:py-2 text-xl hover:text-[#061E43]"><NavLink to='dashbord/selectcourse'
+								className={({ isActive }) =>
+									isActive ? 'text-[#061E43]' : ''
+								}><FaShoppingCart></FaShoppingCart></NavLink>
+								
+								<span className="absolute right-0 -top-3">{selectCourse?.length || 0}</span>
+								</li>
+								
+
+
+
+
 						</ul>
 					</div>
 

@@ -9,7 +9,7 @@ import { postUser } from "../Api/userpost";
 const Regester = () => {
     const navigate = useNavigate()
     const [fireBaseErr, setFireBaseErr] = useState('')
-    const { creaetUser } = useContext(AuthContext)
+    const { creaetUser,updateUserProfile } = useContext(AuthContext)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -17,24 +17,18 @@ const Regester = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         const photo = e.target.photo.value;
-        console.log(name, email, password,photo);
-
+       
         creaetUser(email,password)
         .then((userCredential) => {
             const user = userCredential.user;
-
+            updateUserProfile(name,photo)
             const userInfo = {
                 userName: name,
                 email,
-                image: photo,
+                photoURL: photo,
               };
       
               postUser(userInfo)
-
-
-
-
-
 
              toast.success("Sighin Up sucess")
              navigate("/login")

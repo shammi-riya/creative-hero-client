@@ -6,14 +6,14 @@ import { toast } from "react-toastify";
 
 const Addclass = () => {
     const { user } = useAuth()
-    console.log(user);
+    
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
 
     const onSubmit = (data) => {
-        console.log(data);
+       
 
-        axios.post('http://localhost:5000/course', { data })
+        axios.post('https://creative-hero-surver.vercel.app/course', { data })
             .then(response => {
                 console.log(response.data);
                 if (response.data.insertedId) {
@@ -112,6 +112,7 @@ const Addclass = () => {
                                 <option>pithone Development</option>
                                 <option>Marketting</option>
                                 <option>SEO</option>
+                                <option>graphick</option>
 
                             </select>
                         </div>
