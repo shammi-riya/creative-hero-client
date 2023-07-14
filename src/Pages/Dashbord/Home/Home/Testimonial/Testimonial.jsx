@@ -21,7 +21,7 @@ const Testimonial = () => {
     }, []);
 
     return (
-        <div className='my-36'>
+        <div className='my-36 px-32'>
             <div className='text-center my-10'>
                 <h3 className='text-2xl font-semibold'>What Students</h3>
                 <h1 className='text-3xl font-bold'>Think and Say About Creative Hero</h1>

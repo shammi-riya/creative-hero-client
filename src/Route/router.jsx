@@ -21,6 +21,7 @@ import Adminroute from "./Adminroute";
 import InstractorRoute from "./InstractorRoute";
 import Feedback from "../Pages/Dashbord/Student/Feedback";
 import InstractorHome from "../Pages/Dashbord/Home/InstractorHome/InstractorHome";
+import CourseDetails from "../Pages/Dashbord/Home/Home/CourseDetails/CourseDetails";
 
 
 const router = createBrowserRouter([
@@ -41,9 +42,27 @@ const router = createBrowserRouter([
         path: "/regester",
         element: <Regester></Regester>,
       },
+      // {
+      //   path: "/course",
+      //   element: <Courses></Courses>,
+      // },
       {
-        path: "/course",
+        path: "/course/:category",
         element: <Courses></Courses>,
+        loader: ({ params }) => fetch(`http://localhost:5000/allcourse/${params.category}`)
+        
+
+      },
+      {
+        path: "/courses/:id",
+        element: <CourseDetails></CourseDetails>,
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/allcourses/${params.id}`)
+            .then((response) => response.json())
+            .then((data) => {
+              return { details: data }; // Resolve the Promise with the actual data
+            });
+        }
       },
       {
         path: "/instractor",

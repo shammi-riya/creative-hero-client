@@ -3,29 +3,47 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import useAuth from "../../Hook/useAuth";
 import { toast } from "react-toastify";
-import { useLocation, useNavigate } from "react-router-dom";
-import useAxiosSecure from "../../Hook/useAxiosSecuire";
+import { useLoaderData, useLocation, useNavigate, useParams } from "react-router-dom";
+// import useAxiosSecure from "../../Hook/useAxiosSecuire";
+
 
 const Courses = () => {
+  
+  const [courseData, setCourseData] = useState([]);
+  const loaderData = useLoaderData();
 
-  const [courseData, setCourseData] = useState([])
+  useEffect(() => {
+    setCourseData(loaderData);
+  }, [loaderData]);
+ 
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation()
-  const [axiosSecure]= useAxiosSecure()
+ 
 
 
-  useEffect(() => {
-    axiosSecure
-      .get('https://creative-hero-surver.vercel.app/allcourse')
-      .then(response => {
-        const data = response.data;
-        setCourseData(data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, [axiosSecure]);
+  
+
+  
+
+//   useEffect(()=>{
+
+//     const fetchCourses = async () => {
+//       try {
+//         const courses = await getAllCourse();
+//         // Do something with the courses data
+//         setCourseData(courses);
+//       } catch (error) {
+//         // Handle the error
+//         console.error(error);
+//       }
+//     };
+
+// fetchCourses()
+//   },[])
+
+
+
   // const seoCourse = courseData.filter(course=>course.category== 'SEO')
   // console.log(seoCourse);
 
@@ -78,7 +96,9 @@ const Courses = () => {
 
 
   return (
-    <div className="max-w-7xl mx-auto grid my-28   grid-cols-4 gap-6">
+   <>
+
+<div className="max-w-7xl mx-auto grid my-28   grid-cols-4 gap-6">
       {
         courseData.map(course => <><div key={course._id}>
           <div className=" card my-6 relative rounded bg-[#061E43] shadow-xl">
@@ -103,6 +123,7 @@ const Courses = () => {
         </div></>)
       }
     </div>
+   </>
   );
 };
 

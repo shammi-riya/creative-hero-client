@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const TopFeatureCourse = () => {
     const [activeButton, setActiveButton] = useState(5);
     const [data, setData] = useState([]);
     const [categoryData, setCategoryData] = useState([]);
-
+   
     useEffect(() => {
         fetch('https://creative-hero-surver.vercel.app/allcourse')
             .then((res) => res.json())
@@ -16,6 +17,11 @@ const TopFeatureCourse = () => {
                 setCategoryData(categoryCourses);
             });
     }, [activeButton]);
+
+
+
+    // http://localhost:5000/allcourses/649b1bb72e1e800b2f63ca09
+
 
 
     const handleButtonClick = (index) => {
@@ -45,7 +51,7 @@ const TopFeatureCourse = () => {
     };
 
 
-    console.log(categoryData);
+   
     return (
         <div>
             <div className="flex justify-center items-center text-center mt-28">
@@ -99,30 +105,30 @@ const TopFeatureCourse = () => {
 
             <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:px-32 my-7'>
                 {categoryData.map((course) => (
-                    <div className='card-wrapper' key={course._id}>
-                        <div className="card card-compact bg-base-100 shadow-xl hover:scale-110 hover:shadow-xl transition duration-500 ">
-                            <figure>< img className='h-56 w-full' src={course.img} alt="Shoes" /></figure>
-                            <div className="card-body">
-                                <h2 className="text-xl font-semibold">{course?.className}</h2>
-                                <p className='text-lg mb-6'>availableSeats: {course.availableSeats}</p>
-                                <div className='border-[1px] border-gray-300'></div>
-                                <div className="card-actions flex justify-between text-md ">
-
-                                    <div>
-                                        <p>{course.instructorEmail}</p>
-                                       
-                                    </div>
-                                    <div>
-                                        <p>Price: ${course.price}</p>
+                    <Link to={`/courses/${course._id}`} key={course._id}>
+                        <div className='card-wrapper'>
+                            <div className="card card-compact bg-base-100 shadow-xl hover:scale-110 hover:shadow-xl transition duration-500">
+                                <figure><img className='h-56 w-full' src={course.img} alt="Shoes" /></figure>
+                                <div className="card-body">
+                                    <h2 className="text-xl font-semibold">{course?.className}</h2>
+                                    <p className='text-lg mb-6'>availableSeats: {course.availableSeats}</p>
+                                    <div className='border-[1px] border-gray-300'></div>
+                                    <div className="card-actions flex justify-between text-md">
+                                        <div>
+                                            <p>{course.instructorEmail}</p>
+                                        </div>
+                                        <div>
+                                            <p>Price: ${course.price}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </Link>
                 ))}
-
             </div>
         </div>
+
     );
 };
 
