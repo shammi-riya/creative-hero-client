@@ -51,10 +51,12 @@ const Navber = () => {
 							<li className="md:px-4 md:py-2 hover:text-[#061E43]"><NavLink className={({ isActive }) =>
 								isActive ? 'text-[#061E43]' : ''
 							}>Home</NavLink></li>
-							<li className="md:px-4 md:py-2 hover:text-[#061E43]"><NavLink to='/dashbord'
+							{
+								user && <li className="md:px-4 md:py-2 hover:text-[#061E43]"><NavLink to='/dashbord'
 								className={({ isActive }) =>
 									isActive ? 'text-[#061E43]' : ''
 								}>Dashbord</NavLink></li>
+							}
 							<li className="md:px-4 md:py-2 hover:text-[#061E43]"><NavLink to='/course'
 								className={({ isActive }) =>
 									isActive ? 'text-[#061E43]' : ''
