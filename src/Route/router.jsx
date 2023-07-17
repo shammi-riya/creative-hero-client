@@ -49,7 +49,7 @@ const router = createBrowserRouter([
       {
         path: "/course/:category",
         element: <Courses></Courses>,
-        loader: ({ params }) => fetch(`http://localhost:5000/allcourse/${params.category}`)
+        loader: ({ params }) => fetch(`https://creative-hero-surver-shammi-riya.vercel.app/allcourse/${params.category}`)
         
 
       },
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
         path: "/courses/:id",
         element: <CourseDetails></CourseDetails>,
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/allcourses/${params.id}`)
+          return fetch(`https://creative-hero-surver-shammi-riya.vercel.app/allcourses/${params.id}`)
             .then((response) => response.json())
             .then((data) => {
               return { details: data }; // Resolve the Promise with the actual data

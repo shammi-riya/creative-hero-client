@@ -1,18 +1,28 @@
+
+
 import TopCatogory from "../TopCatogory/TopCatogory";
 import Bannar from "./Bannar/Bannar";
 import Subscribe from "./Subscribe/Subscribe";
 import Testimonial from "./Testimonial/Testimonial";
 import TopFeatureCourse from "./TopFeatureCourse/TopFeatureCourse";
+import AOSInitializer from '../../../../Component/AOSInitializer;';
+
 
 const Home = () => {
+   
     return (
-        <div>
-            <Bannar></Bannar>
-            <TopCatogory></TopCatogory>
-            <TopFeatureCourse></TopFeatureCourse>
-            <Testimonial></Testimonial>
-            <Subscribe></Subscribe>
-        </div>
+        
+            <>
+             <AOSInitializer>
+      
+      <Bannar />
+      <TopCatogory />
+      <TopFeatureCourse />
+      <Testimonial />
+      <Subscribe />
+    
+  </AOSInitializer></>
+        
     );
 };
 

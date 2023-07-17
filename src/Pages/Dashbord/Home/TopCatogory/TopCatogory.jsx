@@ -9,7 +9,11 @@ import { useEffect, useState } from 'react'
 import { getAllCourse } from '../../../../Api/userpost'
 import { Link } from 'react-router-dom'
 
+
 const TopCatogory = () => {
+   
+
+    
 
     const categories = ['Marketting', 'PHP', 'Web Desin', 'graphick', 'Python', 'SEO ', 'Web Development'];
     const [courseData, setCourseData] = useState([]);
@@ -71,7 +75,7 @@ const TopCatogory = () => {
             </div>
 
 
-            < div
+            < div data-aos="fade-up"
                 className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:grid-cols-5 gap-3 py-3 px-32 ">
 
                 {

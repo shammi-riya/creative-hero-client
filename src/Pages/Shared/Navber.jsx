@@ -11,7 +11,7 @@ const Navber = () => {
   useEffect(() => {
     if (user) {
       axios
-        .get("http://localhost:5000/selectcourse", {
+        .get("https://creative-hero-surver-shammi-riya.vercel.app/selectcourse", {
           params: { email: user.email },
         })
         .then((response) => {

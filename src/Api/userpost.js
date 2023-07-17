@@ -28,7 +28,7 @@ export const postUser = (userInfo) => {
 // get all course
 export   const getAllCourse = async () => {
     try {
-        const response = await axios.get('http://localhost:5000/allcourse');
+        const response = await axios.get('https://creative-hero-surver-shammi-riya.vercel.app/allcourse');
         const data = response.data;
         return data;
 
@@ -39,7 +39,7 @@ export   const getAllCourse = async () => {
 
 export   const getcourseDetails = async () => {
     try {
-        const response = await axios.get('http://localhost:5000/allcourse');
+        const response = await axios.get('https://creative-hero-surver-shammi-riya.vercel.app/allcourse');
         const data = response.data;
         return data;
 

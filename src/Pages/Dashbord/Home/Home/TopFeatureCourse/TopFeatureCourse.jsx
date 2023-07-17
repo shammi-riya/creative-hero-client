@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
 const TopFeatureCourse = () => {
     const [activeButton, setActiveButton] = useState(5);
     const [data, setData] = useState([]);
     const [categoryData, setCategoryData] = useState([]);
+    
+    
    
+
     useEffect(() => {
         fetch('https://creative-hero-surver.vercel.app/allcourse')
             .then((res) => res.json())
@@ -20,8 +22,7 @@ const TopFeatureCourse = () => {
 
 
 
-    // http://localhost:5000/allcourses/649b1bb72e1e800b2f63ca09
-
+    
 
 
     const handleButtonClick = (index) => {
@@ -103,7 +104,8 @@ const TopFeatureCourse = () => {
                 </div>
             </div>
 
-            <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:px-32 my-7'>
+            <div data-aos="fade-up"
+            className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:px-32 my-7'>
                 {categoryData.map((course) => (
                     <Link to={`/courses/${course._id}`} key={course._id}>
                         <div className='card-wrapper'>
