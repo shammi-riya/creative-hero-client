@@ -11,7 +11,7 @@ import useInstractor from "../../Hook/useInstractor";
 
 const Dashbord = () => {
     const { user } = useAuth();
-   
+
     const [isInstractor] = useInstractor();
     const [isadmin] = useAdmin();
     return (
@@ -34,84 +34,88 @@ const Dashbord = () => {
                         </div>
 
                         <div>
-                        
+
                         </div>
                     </div>
                     <p className="text-md my-3 text-center">{user?.email}</p>
 
 
-                    <ul className="menu  p-4 w-90  h-full text-xl text-left  text-white">
+                    <ul className="p-4 w-90 px-14 h-full text-xl text-left  text-white">
                         {
-                            isadmin ?( <>
-                            <li className="md:px-4 md:py-2 ">
-                            <NavLink to='/dashbord/managclass'
-                                className={({ isActive }) =>
-                                    isActive ? 'text-[#5588d4]' : ''}><span><FaBook></FaBook></span> managclass</NavLink></li>
+                            isadmin ? (<>
+                                <li className="md:px-4 md:py-2 ">
+                                    <NavLink to='/dashbord/managclass'
+                                        className={({ isActive }) =>
+                                            isActive ? 'text-[#5588d4]' : ''}><FaBook></FaBook> managclass</NavLink></li>
 
 
-                            <li className="md:px-4 md:py-2 ">
-                            <NavLink to='/dashbord/managUsers'
-                                className={({ isActive }) =>
-                                    isActive ? 'text-[#5588d4]' : ''}><span><FaBook></FaBook></span> managUsers</NavLink></li>
+                                <li className="md:px-4 md:py-2 ">
+                                    <NavLink to='/dashbord/managUsers'
+                                        className={({ isActive }) =>
+                                            isActive ? 'text-[#1462d6] font-bold' : ''}><span><FaBook></FaBook></span> managUsers</NavLink></li>
 
-                            </>):
-
-
-                            (isInstractor)? <>
-                            <li className="md:px-4 md:py-2 ">
-                            <NavLink to='/dashbord/profile'
-                                className={({ isActive }) =>
-                                    isActive ? 'text-[#5588d4]' : ''}><span><CgProfile></CgProfile></span> My Profile</NavLink></li>
+                            </>) :
 
 
-                        <li className="md:px-4 md:py-2 ">
-                            <NavLink to='/dashbord/addcourse'
-                                className={({ isActive }) =>
-                                    isActive ? 'text-[#061E43]' : ''}> <span><FaBook></FaBook></span> Add Course</NavLink></li>
+                                (isInstractor) ? <>
+                                    <li className="md:px-4 md:py-2 ">
+                                        <NavLink to='/dashbord/profile'
+                                            className={({ isActive }) =>
+                                                isActive ? 'text-[#5588d4]' : ''}><span><CgProfile></CgProfile></span> My Profile</NavLink></li>
 
 
-                        <li className="md:px-4 md:py-2 ">
-                            <NavLink to='/dashbord/my course'
-                                className={({ isActive }) =>
-                                    isActive ? 'bg-white text-blue-500' : ''}><span><FaBook></FaBook></span>
-                                my course</NavLink></li>
-
-                        <li className="md:px-4 md:py-2 ">
-                            <NavLink to='/dashbord/wishlist'
-                                className={({ isActive }) =>
-                                    isActive ? 'text-[#061E43]' : ''} > <span><FaBookmark></FaBookmark></span>WishList</NavLink></li>
+                                    <li className="md:px-4 md:py-2 ">
+                                        <NavLink to='/dashbord/addcourse'
+                                            className={({ isActive }) =>
+                                                isActive ? 'text-[#061E43]' : ''}> <span><FaBook></FaBook></span> Add Course</NavLink></li>
 
 
-                        <li className="md:px-4 md:py-2 ">
-                            <NavLink to='/dashbord/enroled'
-                                className={({ isActive }) =>
-                                    isActive ? 'text-[#061E43]' : ''}>  <span><FaBook></FaBook></span> Enrolld Class</NavLink></li>
-                        <div className="divider"></div>
-   
-    
-                            
-                            </>:
-                            <>
-                             <li className="md:px-4 md:py-2 ">
-                            <NavLink to='/dashbord/select'
-                                className={({ isActive }) =>
-                                    isActive ? 'text-[#061E43]' : ''}>  <span><FaBook></FaBook></span> selectclass</NavLink></li>
-                             <li className="md:px-4 md:py-2 ">
-                            <NavLink to='/dashbord/enroled'
-                                className={({ isActive }) =>
-                                    isActive ? 'text-[#061E43]' : ''}>  <span><FaBook></FaBook></span> enrolldclass</NavLink></li>
-                             <li className="md:px-4 md:py-2 ">
-                            <NavLink to='/dashbord/feedback'
-                                className={({ isActive }) =>
-                                    isActive ? 'text-[#061E43]' : ''}>  <span><FcFeedback></FcFeedback></span>Feedback</NavLink></li></> 
+                                    <li className="md:px-4 md:py-2 ">
+                                        <NavLink to='/dashbord/my course'
+                                            className={({ isActive }) =>
+                                                isActive ? 'bg-white text-blue-500' : ''}><span><FaBook></FaBook></span>
+                                            my course</NavLink></li>
+
+                                    <li className="md:px-4 md:py-2 ">
+                                        <NavLink to='/dashbord/wishlist'
+                                            className={({ isActive }) =>
+                                                isActive ? 'text-[#5588d4] font-bold' : ''} > <span><FaBookmark></FaBookmark></span>WishList</NavLink></li>
+
+
+                                    <li className="md:px-4 md:py-2 ">
+                                        <NavLink to='/dashbord/enroled'
+                                            className={({ isActive }) =>
+                                                isActive ? 'text-[#061E43]' : ''}>  <span><FaBook></FaBook></span> Enrolld Class</NavLink></li>
+                                    <div className="divider"></div>
+
+
+
+                                </> :
+                                    <>
+                                        <li className="md:px-4 md:py-2 flex">
+                                            <NavLink to='/dashbord/select'
+                                                className={({ isActive }) =>
+                                                    isActive ? 'text-[#5588d4] font-bold' : ''}>  <p className="flex"><span><FaBook></FaBook> </span><span className="ml-3">selectclass</span></p></NavLink></li>
+                                        <li className="md:px-4 md:py-2 ">
+                                            <NavLink to='/dashbord/enroled'
+                                                className={({ isActive }) =>
+                                                    isActive ? 'text-[#5588d4] font-bold' : ''}>  <p className="flex"><span><FaBook></FaBook> </span><span className="ml-3">Enroll</span></p></NavLink></li>
+
+                                        <li className="md:px-4 md:py-2 ">
+                                            <NavLink to='/dashbord/feedback'
+                                                className={({ isActive }) =>
+                                                    isActive ? 'text-[#5588d4] font-bold' : ''}>
+                                                <p className=" flex gap-3"><span><FcFeedback></FcFeedback></span >Feedback<span className="ml-3"></span></p>
+
+                                            </NavLink></li></>
                         }
-                    
 
-                        <li className="md:px-4 md:py-2 "><Link to='/'><span><FaHome></FaHome></span> Home</Link></li>
+
+                        <li className="md:px-4 md:py-2 "><Link to='/'><p className="flex gap-2"><span><FaHome></FaHome></span> <span>Home</span></p></Link></li>
                         <div className="divider"></div>
 
-                        <li className="md:px-4 md:py-2 "><Link><span><FaArrowRight></FaArrowRight></span> LogOut</Link></li>
-                        <li className="md:px-4 md:py-2 "><Link><span><CiSettings></CiSettings></span> setting</Link></li>
+                        <li className="md:px-4 md:py-2 "><Link><p className="flex gap-2"><span><FaArrowRight></FaArrowRight></span> <span>LogOut</span></p></Link></li>
+                        <li className="md:px-4 md:py-2 "><Link><p className="flex gap-2"><span><CiSettings></CiSettings></span> <span>setting</span></p></Link></li>
                     </ul>
 
 

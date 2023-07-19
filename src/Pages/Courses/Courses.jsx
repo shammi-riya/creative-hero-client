@@ -53,12 +53,11 @@ const Courses = () => {
 
 
   const totalProducts = loaderData.length;
-  console.log(totalProducts, 'products');
+  
 
 
   const totalPage = Math.ceil(totalProducts / itemPerpage);
-  console.log(totalPage, 'total');
-
+  
 
 
 
@@ -67,16 +66,6 @@ const Courses = () => {
   }
 
 
-
-  // let pageNumber = []
-
-  // for (let i = 1; i <= totalPage; i++) {
-  //   console.log(i);
-  //   pageNumber.push(i)
-  // }
-
-
-  // const options = [5, 10, 15];
 
 
   const { user } = useAuth();
@@ -88,16 +77,22 @@ const Courses = () => {
 
 
   const handleAdtoselect = (course) => {
-    const { category, className, price, type, img, _id } = course;
+   
 
+   const CourseDetails = {className:course.className,
+    availableSeats:course.availableSeats,
+    price:course.price,
+    category:course.category,
+    type:course.type,
+    instructorEmail:course.instructorEmail,
+    instructorName:course.instructorName,
+    email:user.email ,classId: course._id}
+console.log(course,'course');
     if (user) {
-      const courseWithUser = {
-        ...course,
-        email: user.email // Add the user's email to the course object
-      };
+     
 
       axios
-        .post('https://creative-hero-surver.vercel.app/selectclass', courseWithUser, {
+        .post('http://localhost:5000/selectclass', CourseDetails , {
           headers: {
             'Content-Type': 'application/json'
           }
@@ -109,12 +104,7 @@ const Courses = () => {
           }
         })
         .catch(error => {
-          if (error.response && error.response.status === 400) {
-            const errorMessage = error.response.data.error;
-            toast.error(errorMessage);
-          } else {
-            console.error(error);
-          }
+         console.log(error);
         });
     } else {
       Swal.fire({

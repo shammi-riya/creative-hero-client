@@ -22,6 +22,7 @@ import InstractorRoute from "./InstractorRoute";
 import Feedback from "../Pages/Dashbord/Student/Feedback";
 import InstractorHome from "../Pages/Dashbord/Home/InstractorHome/InstractorHome";
 import CourseDetails from "../Pages/Dashbord/Home/Home/CourseDetails/CourseDetails";
+import Prement from "../Pages/Dashbord/Prement/Prement";
 
 
 const router = createBrowserRouter([
@@ -42,10 +43,7 @@ const router = createBrowserRouter([
         path: "/regester",
         element: <Regester></Regester>,
       },
-      // {
-      //   path: "/course",
-      //   element: <Courses></Courses>,
-      // },
+    
       {
         path: "/course/:category",
         element: <Courses></Courses>,
@@ -127,6 +125,10 @@ const router = createBrowserRouter([
       {
         path: 'feedback',
         element: <Feedback></Feedback>
+      },
+      {
+        path: 'pement',
+        element: <Prement></Prement>
       }
 
     ],

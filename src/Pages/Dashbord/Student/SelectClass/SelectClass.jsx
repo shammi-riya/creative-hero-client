@@ -3,12 +3,13 @@ import useAuth from "../../../../Hook/useAuth";
 import axios from "axios";
 import { FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 
 const SelectClass = () => {
     const { user } = useAuth();
     const [selecCourse, setSelectCourse] = useState([]);
-    
+    console.log(selecCourse, 's');
 
 
     useEffect(() => {
@@ -29,31 +30,40 @@ const SelectClass = () => {
         }
     }, [user]);
 
-  
+
     const handleDelete = (id) => {
-        fetch(`https://creative-hero-surver.vercel.app/deleteCourse/${id}`, {
-          method: "DELETE"
+        fetch(`http://localhost:5000/deleteCourse/${id}`, {
+            method: "DELETE"
         })
-          .then(res => res.json())
-          .then(data => {
-            console.log(data);
-           if(data.deletedCount>0){
-            toast.success('deleted success')
-           }
-            setSelectCourse(prevData => prevData.filter(course => course._id !== id));
-          });
-      };
-      
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                    toast.success('deleted success')
+                }
+                setSelectCourse(prevData => prevData.filter(course => course._id !== id));
+            });
+    };
 
 
 
 
+
+    useEffect(() => {
+        localStorage.setItem("total", JSON.stringify(selecCourse));
+    }, [selecCourse]);
 
 
 
     return (
 
         <>
+
+            <div className="w-1/2 mx-auto my-4 text-end">
+                <Link to='/dashbord/pement'> <button
+                    className="btn btn-sm text-white bg-[#061E43]">Pay</button></Link>
+            </div>
+
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
@@ -88,17 +98,15 @@ const SelectClass = () => {
 
                                     </td>
                                     <td>
-                                       {course.className}
+                                        {course.className}
                                     </td>
                                     <td>{course.type}</td>
                                     <td>{course.price}</td>
                                     <th>
-                                        <button onClick={()=>handleDelete(course._id)}
-                                        className="btn btn-sm bg-red-600 text-white text-md"><FaTrash></FaTrash></button>
+                                        <button onClick={() => handleDelete(course._id)}
+                                            className="btn btn-sm bg-red-600 text-white text-md"><FaTrash></FaTrash></button>
                                     </th>
-                                    <th>
-                                        <button className="btn btn-sm text-white bg-[#061E43]">Pay</button>
-                                    </th>
+
                                 </tr>
                             </>)
                         }
