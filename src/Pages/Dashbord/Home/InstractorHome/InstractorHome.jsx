@@ -27,7 +27,7 @@ const InstractorHome = () => {
               <p className="absolute top-1/2 left-[40%] text-5xl font-bold text-blue-500">  Our instractor</p>
            
         </div>
-         <div className="bg-[#f8f9fa] grid lg:grid-cols-4 my-14 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 lg:px-32 px-5">
+         <div className="bg-[#f8f9fa] grid lg:grid-cols-4 my-32 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 lg:px-32 px-5">
         {instructors.map((singleInstractor) => (
           <div className="bg-white flex flex-col items-center relative group w-full p-4 rounded-md overflow-hidden" key={singleInstractor._id}>
             <img className="h-36 w-36 rounded-full mx-auto" src={singleInstractor?.image} alt="" />

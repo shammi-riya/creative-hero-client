@@ -21,20 +21,20 @@ const Testimonial = () => {
     }, []);
 
     return (
-        <div className='my-36 px-32'>
+        <div className='my-36 lg:px-32 px-4'>
             <div className='text-center my-10'>
                 <h3 className='text-2xl font-semibold'>What Students</h3>
                 <h1 className='text-3xl font-bold'>Think and Say About Creative Hero</h1>
             </div>
             <Marquee>
-            <div className='flex justify-between items-center flex-nowrap gap-8  max-w-7xl mx-auto'>
+            <div className='flex justify-between items-center flex-nowrap gap-2 lg:gap-8 w-full  lg:max-w-7xl mx-auto'>
            
                 {feedbackData.map(feedback => (
                     <div className='w-full' 
                     key={feedback._id}>
                         
-                            <div className='bg-gray-100 p-5 rounded space-y-5 h-96 w-96'>
-                                <div className='flex justify-between'>
+                            <div className='bg-gray-100 p-5 rounded space-y-5 h-96  w-full'>
+                                <div className='flex justify-between w-full'>
                                     <div className='flex gap-3'>
                                         <img className='h-14 w-14 rounded-full' src={feedback?.userImage} alt='' />
                                         <div>
