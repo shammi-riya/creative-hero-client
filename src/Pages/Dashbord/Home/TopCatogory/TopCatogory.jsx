@@ -15,7 +15,7 @@ const TopCatogory = () => {
 
     
 
-    const categories = ['Marketting', 'PHP', 'Web Desin', 'graphick', 'Python', 'SEO ', 'Web Development'];
+    const categories = ['Marketting', 'PHP', 'Web Desin', 'graphick', 'pithone Development', 'SEO ', 'Web Development'];
     const [courseData, setCourseData] = useState([]);
     // 
     const [filteredData, setFilteredData] = useState([]);
@@ -82,7 +82,7 @@ const TopCatogory = () => {
                     categories.map((catogory, index) => <>
                         <Link to={`/course/${catogory}`}>
                             <div onClick={() => handleCatogory(catogory)}
-                                className="shadow-xl hover:scale-110 bg-blue-00 duration-300 hover:bg-[#061E43]  duration-400 hover:text-white p-5 text-center text-8xl">
+                                className="shadow-xl hover:scale-110 bg-blue-00 duration-300 hover:bg-[#061E43] rounded-lg  duration-400 hover:text-white p-5 text-center text-8xl">
                                 <div>
                                     <span className="flex justify-center items-center p-3">
                                         <img

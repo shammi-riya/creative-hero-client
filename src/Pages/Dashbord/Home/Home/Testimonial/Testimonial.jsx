@@ -27,7 +27,7 @@ const Testimonial = () => {
                 <h1 className='text-3xl font-bold'>Think and Say About Creative Hero</h1>
             </div>
             <Marquee>
-            <div className='flex justify-between  gap-6  max-w-7xl mx-auto'>
+            <div className='flex justify-between items-center flex-nowrap gap-8  max-w-7xl mx-auto'>
            
                 {feedbackData.map(feedback => (
                     <div className='w-full' 

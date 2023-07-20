@@ -23,7 +23,7 @@ console.log(course);
 
   useEffect(() => {
     
-    fetch('http://localhost:5000/create-payment-intent', {
+    fetch('https://creative-hero-surver-shammi-riya.vercel.app/create-payment-intent', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -111,7 +111,7 @@ const handleSubmit =async (event)=>{
           className: course.map((item) => item.className),
         };
   
-        axios.post("http://localhost:5000/payments", payment).then((res) => {
+        axios.post("https://creative-hero-surver-shammi-riya.vercel.app/payments", payment).then((res) => {
           console.log(res.data);
           if (res.data.insertResult.insertedId) {
            toast.success('Your pement sucess!')

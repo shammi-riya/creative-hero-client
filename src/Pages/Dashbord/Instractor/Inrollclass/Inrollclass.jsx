@@ -13,7 +13,7 @@ const [enrollClass,setEnrollclass] = useState([])
 useEffect(() => {
     if (user?.email) {
       axios
-        .get("http://localhost:5000/enrollclass", {
+        .get("https://creative-hero-surver-shammi-riya.vercel.app/enrollclass", {
           params: { email: user.email }, 
         })
         .then((res) => {

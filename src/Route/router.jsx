@@ -23,13 +23,14 @@ import Feedback from "../Pages/Dashbord/Student/Feedback";
 import InstractorHome from "../Pages/Dashbord/Home/InstractorHome/InstractorHome";
 import CourseDetails from "../Pages/Dashbord/Home/Home/CourseDetails/CourseDetails";
 import Prement from "../Pages/Dashbord/Prement/Prement";
+import Err from "../Component/Err";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    //   errorElement: <ErrorPage />,
+      errorElement: <Err></Err>,
     children: [
       {
         path: "/",

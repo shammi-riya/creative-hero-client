@@ -53,11 +53,11 @@ const Courses = () => {
 
 
   const totalProducts = loaderData.length;
-  
+
 
 
   const totalPage = Math.ceil(totalProducts / itemPerpage);
-  
+
 
 
 
@@ -77,22 +77,24 @@ const Courses = () => {
 
 
   const handleAdtoselect = (course) => {
-   
 
-   const CourseDetails = {className:course.className,
-    availableSeats:course.availableSeats,
-    price:course.price,
-    category:course.category,
-    type:course.type,
-    instructorEmail:course.instructorEmail,
-    instructorName:course.instructorName,
-    email:user.email ,classId: course._id}
-console.log(course,'course');
+
+    
+    
     if (user) {
-     
 
+      const CourseDetails = {
+        className: course.className,
+        availableSeats: course.availableSeats,
+        price: course.price,
+        category: course.category,
+        type: course.type,
+        instructorEmail: course.instructorEmail,
+        instructorName: course.instructorName,
+        email: user.email, classId: course._id
+      }
       axios
-        .post('http://localhost:5000/selectclass', CourseDetails , {
+        .post('https://creative-hero-surver-shammi-riya.vercel.app/selectclass', CourseDetails, {
           headers: {
             'Content-Type': 'application/json'
           }
@@ -104,7 +106,7 @@ console.log(course,'course');
           }
         })
         .catch(error => {
-         console.log(error);
+          console.log(error);
         });
     } else {
       Swal.fire({
@@ -125,10 +127,7 @@ console.log(course,'course');
 
 
 
-  // const handaleSelectChange = (e) => {
-  //   setItemPerpage(parseInt(e.target.value));
-  //   setCurrentPage(1)
-  // }
+
 
   return (
     <>
@@ -136,12 +135,12 @@ console.log(course,'course');
       <div className="max-w-7xl mx-auto grid my-28   grid-cols-4 gap-6">
         {
           paginatedData.map(course => <><div key={course._id}>
-            <div className=" card my-6 relative rounded bg-[#061E43] shadow-xl">
+            <div className="h-[500px] card my-6 relative rounded bg-slate-100 shadow-xl">
               <div>
-                <figure><img className="h-60 w-full relative" src={course.img} alt="Shoes" /></figure>
-                <div className="badge absolute top-2 right-2 bg-[#061E43] p-3 text-white">{course.category}</div>
+                <figure><img className="w-full  h-60" src={course.img} alt="Shoes" /></figure>
+                <div className="badge absolute top-2 right-2 text-[#061E43] p-3 ">{course.category}</div>
               </div>
-              <div className="card-body h-56 text-white">
+              <div className="card-body relative py-6 ">
                 <h2 className="text-2xl card-title">{course.className}</h2>
 
                 <p> avalable Seats :{course.availableSeats}</p>
@@ -150,34 +149,21 @@ console.log(course,'course');
 
                 <div className="flex justify-between items-center ">
                   <p className="text-[#5588d4] text-xl">${course.price}</p>
-                  <button onClick={() => handleAdtoselect(course)}
-                    className="py-2 px-3 text-white bg-[#5588d4] rounded-md text-xl">Select</button>
+
                 </div>
+                <button onClick={() => handleAdtoselect(course)}
+                  className="py-2 px-3 absolute bottom-5 text-white bg-[#5588d4] rounded-md text-xl">Select</button>
               </div>
             </div>
 
           </div></>)
         }
+
+
+
       </div>
 
       <div className="text-center my-5">
-        {/* {pageNumber.map(number=><button onClick={()=>setPageNumber(number)}
-        className="btn mx-2" key={number}>{number}</button>)
-        }
-       
-       <select 
-       onChange={handaleSelectChange}
-       value={itemPerpage} 
-       name="" 
-       id="">
-        {
-          options.map(option=><option key={option} value={option}
-          >
-            {option}
-          </option>)
-        }
-        
-       </select> */}
 
         <ThemeProvider theme={theme}>
           <div className="w-full h-full flex justify-center items-center my-10">

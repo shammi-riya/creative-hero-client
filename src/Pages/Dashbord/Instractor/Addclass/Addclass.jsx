@@ -113,6 +113,7 @@ const Addclass = () => {
                                 <option>Marketting</option>
                                 <option>SEO</option>
                                 <option>graphick</option>
+                                <option>PHP</option>
 
                             </select>
                         </div>

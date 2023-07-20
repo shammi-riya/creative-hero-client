@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const SelectClass = () => {
     const { user } = useAuth();
     const [selecCourse, setSelectCourse] = useState([]);
-    console.log(selecCourse, 's');
+   
 
 
     useEffect(() => {
@@ -32,7 +32,7 @@ const SelectClass = () => {
 
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/deleteCourse/${id}`, {
+        fetch(`https://creative-hero-surver-shammi-riya.vercel.app/deleteCourse/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

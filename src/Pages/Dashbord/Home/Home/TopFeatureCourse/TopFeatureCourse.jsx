@@ -63,34 +63,34 @@ const TopFeatureCourse = () => {
 
                     <div className="flex gap-4">
                         <button
-                            className={`font-semibold py-3 px-2 rounded-2xl ${activeButton === 5 ? 'bg-blue-500 text-white' : ''}`}
+                            className={`font-semibold  px-2 rounded-2xl ${activeButton === 5 ? 'bg-blue-500 text-white' : ''}`}
                             onClick={() => handleButtonClick(5)}
                         >
                             Graphic Design
                         </button>
                         <button
-                            className={`font-semibold py-3 px-2 rounded-2xl ${activeButton === 0 ? 'bg-blue-500 text-white' : ''
+                            className={`font-semibold  text-center px-2 rounded-2xl ${activeButton === 0 ? 'bg-blue-500 text-white' : ''
                                 }`}
                             onClick={() => handleButtonClick(0)}
                         >
                             Web Development
                         </button>
                         <button
-                            className={`font-semibold py-3 px-2 rounded-2xl ${activeButton === 1 ? 'bg-blue-500 text-white' : ''
+                            className={`font-semibold  px-2 rounded-2xl ${activeButton === 1 ? 'bg-blue-500 text-white' : ''
                                 }`}
                             onClick={() => handleButtonClick(1)}
                         >
                             Web Design
                         </button>
                         <button
-                            className={`font-semibold py-3 px-2 rounded-2xl ${activeButton === 2 ? 'bg-blue-500 text-white' : ''
+                            className={`font-semibold  px-2 rounded-2xl ${activeButton === 2 ? 'bg-blue-500 text-white' : ''
                                 }`}
                             onClick={() => handleButtonClick(2)}
                         >
                             Marketing
                         </button>
                         <button
-                            className={`font-semibold py-3 px-2 rounded-2xl ${activeButton === 3 ? 'bg-blue-500 text-white' : ''
+                            className={`font-semibold  px-2 rounded-2xl ${activeButton === 3 ? 'bg-blue-500 text-white' : ''
                                 }`}
                             onClick={() => handleButtonClick(3)}
                         >
@@ -105,7 +105,7 @@ const TopFeatureCourse = () => {
             </div>
 
             <div data-aos="fade-up"
-            className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:px-32 my-7'>
+            className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 lg:px-32 my-7'>
                 {categoryData.map((course) => (
                     <Link to={`/courses/${course._id}`} key={course._id}>
                         <div className='card-wrapper'>

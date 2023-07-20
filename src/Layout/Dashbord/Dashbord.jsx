@@ -46,13 +46,13 @@ const Dashbord = () => {
                                 <li className="md:px-4 md:py-2 ">
                                     <NavLink to='/dashbord/managclass'
                                         className={({ isActive }) =>
-                                            isActive ? 'text-[#5588d4]' : ''}><FaBook></FaBook> managclass</NavLink></li>
+                                            isActive ? 'text-[#5588d4]' : ''}><p className="flex gap-3"><FaBook></FaBook> <span>managclass</span></p></NavLink></li>
 
 
                                 <li className="md:px-4 md:py-2 ">
                                     <NavLink to='/dashbord/managUsers'
                                         className={({ isActive }) =>
-                                            isActive ? 'text-[#1462d6] font-bold' : ''}><span><FaBook></FaBook></span> managUsers</NavLink></li>
+                                            isActive ? 'text-[#1462d6] font-bold' : ''}><p className="flex gap-3"><span><FaBook></FaBook></span> <span>managUsers</span></p></NavLink></li>
 
                             </>) :
 
@@ -61,31 +61,31 @@ const Dashbord = () => {
                                     <li className="md:px-4 md:py-2 ">
                                         <NavLink to='/dashbord/profile'
                                             className={({ isActive }) =>
-                                                isActive ? 'text-[#5588d4]' : ''}><span><CgProfile></CgProfile></span> My Profile</NavLink></li>
+                                                isActive ? 'text-[#5588d4]' : ''}><p className="flex gap-3"><span><CgProfile></CgProfile></span> <span>My Profile</span></p></NavLink></li>
 
 
                                     <li className="md:px-4 md:py-2 ">
                                         <NavLink to='/dashbord/addcourse'
                                             className={({ isActive }) =>
-                                                isActive ? 'text-[#061E43]' : ''}> <span><FaBook></FaBook></span> Add Course</NavLink></li>
+                                                isActive ? 'text-[#061E43]' : ''}> < p className="flex gap-2"><span><FaBook></FaBook></span><span> Add Course</span></p></NavLink></li>
 
 
                                     <li className="md:px-4 md:py-2 ">
                                         <NavLink to='/dashbord/my course'
                                             className={({ isActive }) =>
-                                                isActive ? 'bg-white text-blue-500' : ''}><span><FaBook></FaBook></span>
-                                            my course</NavLink></li>
+                                                isActive ? 'bg-white text-blue-500' : ''}><p className="flex gap-2"><span><FaBook></FaBook></span>
+                                                <span>my course</span></p></NavLink></li>
 
                                     <li className="md:px-4 md:py-2 ">
                                         <NavLink to='/dashbord/wishlist'
                                             className={({ isActive }) =>
-                                                isActive ? 'text-[#5588d4] font-bold' : ''} > <span><FaBookmark></FaBookmark></span>WishList</NavLink></li>
+                                                isActive ? 'text-[#5588d4] font-bold' : ''} > <p className="flex gap-3"><span><FaBookmark></FaBookmark></span><span>WishList</span></p></NavLink></li>
 
 
                                     <li className="md:px-4 md:py-2 ">
                                         <NavLink to='/dashbord/enroled'
                                             className={({ isActive }) =>
-                                                isActive ? 'text-[#061E43]' : ''}>  <span><FaBook></FaBook></span> Enrolld Class</NavLink></li>
+                                                isActive ? 'text-[#061E43]' : ''}> <p className="flex gap-3"> <span><FaBook></FaBook></span> <span>Enrolld Class</span></p></NavLink></li>
                                     <div className="divider"></div>
 
 
