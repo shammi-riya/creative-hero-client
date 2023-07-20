@@ -132,7 +132,7 @@ const Courses = () => {
   return (
     <>
 
-      <div className="max-w-7xl mx-auto grid my-28   grid-cols-4 gap-6">
+      <div className="max-w-7xl mx-auto grid my-28 grid-cols-1 md:grid-cols-3  lg:grid-cols-4 gap-6">
         {
           paginatedData.map(course => <><div key={course._id}>
             <div className="h-[500px] card my-6 relative rounded bg-slate-100 shadow-xl">

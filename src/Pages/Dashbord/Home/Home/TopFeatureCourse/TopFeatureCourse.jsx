@@ -61,7 +61,7 @@ const TopFeatureCourse = () => {
                         <p className="text-4xl font-bold my-5">Top Feature Course</p>
                     </div>
 
-                    <div className="flex gap-4">
+                    <div className="flex flex-wrap gap-4 sm:justify-center sm:items-center text-start">
                         <button
                             className={`font-semibold  px-2 rounded-2xl ${activeButton === 5 ? 'bg-blue-500 text-white' : ''}`}
                             onClick={() => handleButtonClick(5)}

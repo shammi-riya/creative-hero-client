@@ -76,13 +76,13 @@ const TopCatogory = () => {
 
 
             < div data-aos="fade-up"
-                className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:grid-cols-5 gap-3 py-3 px-32 ">
+                className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:grid-cols-5 gap-3 py-3 sm:px-10 md:px-4 lg:px-32 ">
 
                 {
                     categories.map((catogory, index) => <>
                         <Link to={`/course/${catogory}`}>
                             <div onClick={() => handleCatogory(catogory)}
-                                className="shadow-xl hover:scale-110 bg-blue-00 duration-300 hover:bg-[#061E43] rounded-lg  duration-400 hover:text-white p-5 text-center text-8xl">
+                                className="shadow-xl hover:scale-110 bg-blue-00 duration-300 mx-4 hover:bg-[#061E43] rounded-lg  duration-400 hover:text-white p-5 text-center text-8xl">
                                 <div>
                                     <span className="flex justify-center items-center p-3">
                                         <img

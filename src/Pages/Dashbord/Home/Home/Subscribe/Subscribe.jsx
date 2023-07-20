@@ -7,7 +7,7 @@ const Subscribe = () => {
 and Course updates?</p>
 
 <div>
-<div className="w-1/2 mx-auto my-7">
+<div className="lg:w-1/2 mx-auto my-7 sm:w-full sm:px-3">
   <label htmlForfor="hs-trailing-button-add-on" className="sr-only">Label</label>
   <div className="flex rounded-md shadow-sm">
     <input type="text" id="hs-trailing-button-add-on" name="hs-trailing-button-add-on" className="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-l-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"/>
