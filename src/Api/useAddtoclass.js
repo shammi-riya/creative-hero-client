@@ -8,7 +8,7 @@ const useAddtoclass = () => {
     const { data: toQdata = [], isLoading, refetch} = useQuery({
         queryKey: ['carts', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/selectcourse?email=${user?.email}`)
+            const res = await fetch(`https://creative-hero-surver-shammi-riya.vercel.app/selectcourse?email=${user?.email}`)
             return res.json();
         }
 
