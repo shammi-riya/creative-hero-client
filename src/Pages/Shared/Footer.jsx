@@ -222,7 +222,7 @@ const Footer = () => {
     <a
       className="font-semibold text-white dark:text-neutral-400"
       href="https://tailwind-elements.com/"
-      >Tailwind Elements</a
+      >Creative Hero</a
     >
   </div>
 </footer>

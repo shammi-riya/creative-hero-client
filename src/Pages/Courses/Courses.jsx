@@ -5,10 +5,14 @@ import useAuth from "../../Hook/useAuth";
 import { toast } from "react-toastify";
 import { Pagination, ThemeProvider, createTheme } from '@mui/material';
 import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
+import useAddtoclass from "../../Api/useAddtoclass";
 
 
 
 const Courses = () => {
+
+
+
   const theme = createTheme({
     palette: {
       primary: {
@@ -23,9 +27,10 @@ const Courses = () => {
 
 
 
-
+const [, ,refetch] = useAddtoclass()
   const [courseData, setCourseData] = useState([]);
   const loaderData = useLoaderData();
+  
 
   const [currentPage, setCurrentPage] = useState(1)
 
@@ -77,10 +82,6 @@ const Courses = () => {
 
 
   const handleAdtoselect = (course) => {
-
-
-    
-    
     if (user) {
 
       const CourseDetails = {
@@ -102,6 +103,7 @@ const Courses = () => {
         .then(response => {
           const data = response.data;
           if (data.insertedId) {
+            refetch()
             toast.success('Class select success');
           }
         })
@@ -132,7 +134,7 @@ const Courses = () => {
   return (
     <>
 
-      <div className="max-w-7xl mx-auto grid my-28 grid-cols-1 md:grid-cols-3  lg:grid-cols-4 gap-6">
+      <div className="max-w-7xl mx-auto grid py-24 grid-cols-1 md:grid-cols-3  lg:grid-cols-4 gap-6">
         {
           paginatedData.map(course => <><div key={course._id}>
             <div className="h-[500px] card my-6 relative rounded bg-slate-100 shadow-xl">

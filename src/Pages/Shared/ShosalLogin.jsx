@@ -7,7 +7,7 @@ import { postUser } from "../../Api/userpost";
 const ShosalLogin = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { createGogoolUser, creteGithubUser, } = useContext(AuthContext)
+    const { createGogoolUser} = useContext(AuthContext)
     const from = location.state?.from?.pathname || "/";
 
     const handleGogool = () => {
@@ -34,28 +34,7 @@ const ShosalLogin = () => {
 
 
 
-    const handleGithub = () => {
-        creteGithubUser()
-            .then((userCredential) => {
-
-                const user = userCredential.user;
-                // Tudu:USER COLLEC
-                console.log(user);
-                navigate(from, { replace: true });
-
-            })
-            .catch((error) => {
-
-                const errorMessage = error.message;
-                console.log(errorMessage);
-
-            });
-
-    }
-
-
-
-
+   
 
 
 
@@ -68,11 +47,10 @@ const ShosalLogin = () => {
 
         <div>
             <div className="py-6 space-x-2">
-                <span className="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">f</span>
+               
                 <span onClick={handleGogool}
                     className="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">G+</span>
-                <span onClick={handleGithub}
-                    className="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">g</span>
+              
             </div>
         </div>
     );
