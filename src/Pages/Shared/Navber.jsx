@@ -2,35 +2,16 @@ import { useContext} from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/Authprovider";
 import { FaShoppingCart } from "react-icons/fa";
-import axios from "axios";
-import {  useQuery } from "@tanstack/react-query";
 import useAddtoclass from "../../Api/useAddtoclass";
 
 const Navber = () => {
   const { user, logOut } = useContext(AuthContext);
   const [toQdata, isLoading,refetch]= useAddtoclass()
-  // const [selectCourse, setSelectCourse] = useState([]);
+  
 
 
 
-  // useEffect(() => {
-  //   if (user) {
-  //     axios
-  //       .get("https://creative-hero-surver-shammi-riya.vercel.app/selectcourse", {
-  //         params: { email: user.email },
-  //       })
-  //       .then((response) => {
-  //         setSelectCourse(response.data);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   }
-  // }, [user]);
-
-
-
-  // eslint-disable-next-line
+  
 
 
   const handleLogOut = () => {
