@@ -22,17 +22,17 @@ const Testimonial = () => {
 
     return (
         <div className='my-36 lg:px-32 px-4'>
-            <div className='text-center my-10'>
+            <div className='text-center my-10 text-white'>
                 <h3 className='text-2xl font-semibold'>What Students</h3>
                 <h1 className='text-3xl font-bold'>Think and Say About Creative Hero</h1>
             </div>
             <Marquee>
-            <div className='flex justify-between items-center flex-nowrap gap-2 lg:gap-8 w-full  lg:max-w-7xl mx-auto'>
-           
-                {feedbackData.map(feedback => (
-                    <div className='w-full' 
-                    key={feedback._id}>
-                        
+                <div className='flex justify-between items-center flex-nowrap gap-2 lg:gap-8 w-full  lg:max-w-7xl mx-auto'>
+
+                    {feedbackData.map(feedback => (
+                        <div className='w-full'
+                            key={feedback._id}>
+
                             <div className='bg-gray-100 p-5 rounded space-y-5 h-96  w-full'>
                                 <div className='flex justify-between w-full'>
                                     <div className='flex gap-3'>
@@ -50,10 +50,10 @@ const Testimonial = () => {
                                     </div>
                                 </div>
                                 <div>
-                                   <div>
-                                   <p className='text-2xl font-semibold text-blue-400'>{feedback?.feedback}</p>
-                                    <p>{feedback?.description.slice(0, 220)}..</p>
-                                   </div>
+                                    <div>
+                                        <p className='text-2xl font-semibold text-blue-400'>{feedback?.feedback}</p>
+                                        <p>{feedback?.description.slice(0, 220)}..</p>
+                                    </div>
                                     <div className='flex gap-2 my-3 text-xl text-yellow-200'>
                                         <FaStar />
                                         <FaStar />
@@ -62,11 +62,11 @@ const Testimonial = () => {
                                     </div>
                                 </div>
                             </div>
-                       
-                    </div>
-                ))}
-                
-            </div>
+
+                        </div>
+                    ))}
+
+                </div>
             </Marquee>
         </div>
     );

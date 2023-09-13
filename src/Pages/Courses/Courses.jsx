@@ -16,10 +16,10 @@ const Courses = () => {
   const theme = createTheme({
     palette: {
       primary: {
-        main: '#ff0000', // Set the primary color
+        main: '#ff0000', 
       },
       secondary: {
-        main: '#00ff00', // Set the secondary color
+        main: '#00ff00', 
       },
     },
   });
@@ -132,18 +132,18 @@ const [, ,refetch] = useAddtoclass()
 
 
   return (
-    <>
+    <div className="bg-[#151515]">
 
-      <div className="max-w-7xl mx-auto grid py-24 grid-cols-1 md:grid-cols-3  lg:grid-cols-4 gap-6">
+      <div className=" max-w-7xl mx-auto grid py-24 grid-cols-1 md:grid-cols-3  lg:grid-cols-4 gap-6">
         {
           paginatedData.map(course => <><div key={course._id}>
-            <div className="h-[500px] card my-6 relative rounded bg-slate-100 shadow-xl">
+            <div className="h-[500px] text-white card my-6 relative rounded  shadow-2xl">
               <div>
                 <figure><img className="w-full  h-60" src={course.img} alt="Shoes" /></figure>
-                <div className="badge absolute top-2 right-2 text-[#061E43] p-3 ">{course.category}</div>
+                <div className="badge absolute bg-[#8BD826] top-2 right-2 text-[#ffff] p-3 ">{course.category}</div>
               </div>
-              <div className="card-body relative py-6 ">
-                <h2 className="text-2xl card-title">{course.className}</h2>
+              <div className="p-3  py-3 ">
+                <h2 className="text-xl card-title">{course.className}</h2>
 
                 <p> avalable Seats :{course.availableSeats}</p>
                 <p className="p-0">Course Type: {course.type}</p>
@@ -152,9 +152,10 @@ const [, ,refetch] = useAddtoclass()
                 <div className="flex justify-between items-center ">
                   <p className="text-[#5588d4] text-xl">${course.price}</p>
 
-                </div>
+               
                 <button onClick={() => handleAdtoselect(course)}
-                  className="py-2 px-3 absolute bottom-5 text-white bg-[#5588d4] rounded-md text-xl">Select</button>
+                  className="py-2 px-3  text-white bg-[#5588d4] rounded-md text-xl">Select</button>
+                   </div>
               </div>
             </div>
 
@@ -165,15 +166,15 @@ const [, ,refetch] = useAddtoclass()
 
       </div>
 
-      <div className="text-center my-5">
+      <div className="text-center py-5">
 
         <ThemeProvider theme={theme}>
-          <div className="w-full h-full flex justify-center items-center my-10">
+          <div className="w-full h-full flex justify-center items-center py-10">
             <Pagination onChange={handleChange} count={totalPage} color="primary" />
           </div>
         </ThemeProvider>
       </div>
-    </>
+    </div>
   );
 };
 

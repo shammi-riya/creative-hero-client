@@ -57,7 +57,7 @@ const Feedback = () => {
             <form className="bg-[#F3F3F3] p-5 w-full "
                 onSubmit={handleSubmit(onSubmit)}>
 
-                <div className="my-3">
+                <div className="my-3 hidden">
 
                     <input
                         className="py-2 px-3 my-2 w-full rounded-sm"
@@ -71,7 +71,7 @@ const Feedback = () => {
                 </div>
 
 
-                <div className="my-3">
+                <div className="my-3 hidden">
 
                     <input
                         className="py-2 px-3 my-2 w-full rounded-sm"
@@ -86,7 +86,7 @@ const Feedback = () => {
 
 
 
-                <div className="my-3">
+                {/* <div className="my-3">
                     <label className="font-semibold my-3"
                         htmlFor="">Do you have any suggestion for us?</label> <br />
                     <input className="py-2 px-3 w-full my-2 rounded-sm"
@@ -94,11 +94,11 @@ const Feedback = () => {
                             { required: true })}
                         placeholder="feedback"
                     />
-                </div>
+                </div> */}
 
 
                 <div className="my-3">
-                    <label className="font-semibold my-3"
+                    <label className="font-semibold my-3 text-center"
                         htmlFor="">Do you have any suggestion for us?</label> <br />
                     <textarea className="py-2 px-3 w-full my-3 textarea"
                         {...register("description",
@@ -113,7 +113,7 @@ const Feedback = () => {
 
                 <input type="submit"
                     value="Send Feedback"
-                    className="bg-slate-600 text-slate-50 py-2 px-4 rounded-sm" />
+                    className="bg-slate-600 text-slate-50 py-2 px-4 rounded-sm w-full" />
             </form>
         </div>
     );

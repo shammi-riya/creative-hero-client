@@ -39,7 +39,7 @@ useEffect(() => {
                             <th>
                                 #
                             </th>
-                            <th>image</th>
+                          
                             <th>classname</th>
                             <th>type</th>
                             <th>price</th>
@@ -53,16 +53,7 @@ useEffect(() => {
                                     <th>
                                         {i + 1}
                                     </th>
-                                    <td>
-
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle w-12 h-12">
-                                                <img src={course.img} alt="Avatar Tailwind CSS Component" />
-                                            </div>
-                                        </div>
-
-
-                                    </td>
+                                   
                                     <td>
                                        {course.className}
                                     </td>

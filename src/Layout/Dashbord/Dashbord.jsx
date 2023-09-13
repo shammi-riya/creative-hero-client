@@ -1,6 +1,6 @@
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import useAuth from "../../Hook/useAuth";
-import { CgProfile } from 'react-icons/cg';
+// import { CgProfile } from 'react-icons/cg';
 import { FcFeedback } from 'react-icons/fc';
 import { FaBookmark, FaArrowRight, FaHome, FaBook } from 'react-icons/fa';
 import { CiSettings } from 'react-icons/ci';
@@ -14,6 +14,9 @@ const Dashbord = () => {
 
     const [isInstractor] = useInstractor();
     const [isadmin] = useAdmin();
+    
+
+
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -58,10 +61,10 @@ const Dashbord = () => {
 
 
                                 (isInstractor) ? <>
-                                    <li className="md:px-4 md:py-2 ">
+                                    {/* <li className="md:px-4 md:py-2 ">
                                         <NavLink to='/dashbord/profile'
                                             className={({ isActive }) =>
-                                                isActive ? 'text-[#5588d4]' : ''}><p className="flex gap-3"><span><CgProfile></CgProfile></span> <span>My Profile</span></p></NavLink></li>
+                                                isActive ? 'text-[#5588d4]' : ''}><p className="flex gap-3"><span><CgProfile></CgProfile></span> <span>My Profile</span></p></NavLink></li> */}
 
 
                                     <li className="md:px-4 md:py-2 ">
@@ -85,7 +88,7 @@ const Dashbord = () => {
                                     <li className="md:px-4 md:py-2 ">
                                         <NavLink to='/dashbord/enroled'
                                             className={({ isActive }) =>
-                                                isActive ? 'text-[#061E43]' : ''}> <p className="flex gap-3"> <span><FaBook></FaBook></span> <span>Enrolld Class</span></p></NavLink></li>
+                                                isActive ? 'text-[#5588d4] font-bold' : ''}> <p className="flex gap-3"> <span><FaBook></FaBook></span> <span>Enrolld Class</span></p></NavLink></li>
                                     <div className="divider"></div>
 
 
@@ -114,7 +117,7 @@ const Dashbord = () => {
                         <li className="md:px-4 md:py-2 "><Link to='/'><p className="flex gap-2"><span><FaHome></FaHome></span> <span>Home</span></p></Link></li>
                         <div className="divider"></div>
 
-                        <li className="md:px-4 md:py-2 "><Link><p className="flex gap-2"><span><FaArrowRight></FaArrowRight></span> <span>LogOut</span></p></Link></li>
+                        <li className="md:px-4 md:py-2 "><Link><p className="flex gap-2"><span><FaArrowRight></FaArrowRight></span> <span >LogOut</span></p></Link></li>
                         <li className="md:px-4 md:py-2 "><Link><p className="flex gap-2"><span><CiSettings></CiSettings></span> <span>setting</span></p></Link></li>
                     </ul>
 

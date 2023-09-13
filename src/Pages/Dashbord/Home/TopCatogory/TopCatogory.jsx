@@ -64,7 +64,7 @@ const TopCatogory = () => {
         setFilteredData(filterData);
     }
 
-    console.log(filteredData);
+  
 
 
     return (

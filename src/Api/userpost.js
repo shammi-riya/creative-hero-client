@@ -18,9 +18,6 @@ export const postUser = (userInfo) => {
             // Additional code to handle the error
         });
 
-
-
-
 }
 
 
@@ -36,6 +33,7 @@ export   const getAllCourse = async () => {
         console.log(error);
     }
 }
+
 
 export   const getcourseDetails = async () => {
     try {

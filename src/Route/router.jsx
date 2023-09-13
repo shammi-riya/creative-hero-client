@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
-// import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login";
 import Regester from "../Pages/Regester";
 import Dashbord from "../Layout/Dashbord/Dashbord";
@@ -59,7 +58,7 @@ const router = createBrowserRouter([
           return fetch(`https://creative-hero-surver-shammi-riya.vercel.app/allcourses/${params.id}`)
             .then((response) => response.json())
             .then((data) => {
-              return { details: data }; // Resolve the Promise with the actual data
+              return { details: data }; 
             });
         }
       },

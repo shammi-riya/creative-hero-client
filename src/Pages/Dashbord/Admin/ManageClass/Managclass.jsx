@@ -1,57 +1,53 @@
+// import axios from "axios";
+// import { useEffect, useState } from "react";
+// import Swal from "sweetalert2";
+// import useAxiosSecure from "../../../../Hook/useAxiosSecuire";
+// import useAddtoclass from "../../../../Api/useAddtoclass";
+import { toast } from "react-toastify";
+import useFetchCourses from "../../../../Hook/useFetchCourses";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import Swal from "sweetalert2";
-import useAxiosSecure from "../../../../Hook/useAxiosSecuire";
 
 
 const Managclass = () => {
-  const [courses, setCourses] = useState([]);
-  const [axiosSecure] = useAxiosSecure();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axiosSecure.get("https://creative-hero-surver.vercel.app/allcourse");
-        setCourses(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, [axiosSecure]);
-
-  // Rest of the code...
+  const [courses, refetch] = useFetchCourses();
 
   
 
+ const handleApprove = (id)=>{
+  axios.patch(`https://creative-hero-surver-shammi-riya.vercel.app
+/allClass/appruve/${id}`,{
+    method:'PATCH',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body:JSON.stringify({id:id})
+  })
+  .then(data=>{
+    refetch()
+    console.log(data.data);
+    toast(data.data.message)
+  })
+ }
 
 
 
+  
 
-  const handleApprove = async (course) => {
-    try {
-      const response = await axios.patch(`https://creative-hero-surver.vercel.app/allClass/Approve/${course._id}`);
-      if (response.data.modifiedCount) {
-        const updatedCourses = courses.map((c) =>
-          c._id === course._id ? { ...c, status: "Approved" } : c
-        );
-        setCourses(updatedCourses);
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Approved successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleDeny = (course) => {
-    console.log(course);
+  const handleDeny = (id) => {
+    fetch(`https://creative-hero-surver-shammi-riya.vercel.app
+/allClass/Danny/${id}`, {
+      method: "PATCH",
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({ id: id })
+    })
+      .then(res => res.json())
+      .then(data => {
+        refetch()
+        console.log(data);
+        toast(data.message)
+      })
   };
 
   return (
@@ -90,10 +86,10 @@ const Managclass = () => {
                 <td>{course.category}</td>
                 <td>{course.type}</td>
                 <td>{course.price}</td>
-                <td>{course.status}</td>
+                <td>{course.stutus}</td>
                 <td>
                   <button
-                    onClick={() => handleApprove(course)}
+                    onClick={() => handleApprove(course._id)}
                     className="btn btn-sm text-white bg-[#061E43]"
                   >
                     Approve
@@ -101,7 +97,7 @@ const Managclass = () => {
                 </td>
                 <td>
                   <button
-                    onClick={() => handleDeny(course)}
+                    onClick={() => handleDeny(course._id)}
                     className="btn btn-sm text-white bg-[#061E43]"
                   >
                     Deny

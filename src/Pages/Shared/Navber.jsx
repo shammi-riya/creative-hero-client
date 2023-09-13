@@ -1,18 +1,14 @@
-import { useContext} from "react";
+import { useContext, useEffect, useState} from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/Authprovider";
 import { FaShoppingCart } from "react-icons/fa";
 import useAddtoclass from "../../Api/useAddtoclass";
 
 const Navber = () => {
+  const [header,setHeader] = useState(false)
   const { user, logOut } = useContext(AuthContext);
-  const [toQdata, isLoading,refetch]= useAddtoclass()
+  const [toQdata]= useAddtoclass()
   
-
-
-
-  
-
 
   const handleLogOut = () => {
     logOut()
@@ -20,61 +16,88 @@ const Navber = () => {
       .catch((err) => console.log(err));
   };
 
+
+
+
+  //header style
+
+  useEffect(()=>{
+
+    const handleScroll =()=>{
+      if(window.scrollY >300){
+        setHeader(true)
+     }else{
+       setHeader(false)
+     }
+    }
+
+    window.addEventListener('scroll',handleScroll)
+
+    return(()=>{
+      window.removeEventListener('scroll',handleScroll)
+    })
+
+  },[])
+  
+  
+
   return (
-    <div>
-      <nav className="absolute top-0 left-0 z-10 w-full bg-gray-200 shadow shadow-gray-300 w-100 px-8 md:px-auto py-3">
+    <>
+      <nav  className={`${
+          header ? "fixed w-full top-0 left-0 right-0 transition-all duration-200 w-100" : "w-100 absolute top-0 left-0 right-0"
+        } z-30 bg-[#353535] text-[#ffffff] w-100 px-8 md:px-auto py-3`}>
         <div className="md:h-16 h-28 mx-auto md:px-20 container flex items-center justify-between flex-wrap md:flex-nowrap">
-          <div className="text-[#061E43] md:order-1 text-3xl font-bold">
+          <div className="text-[#8BD826] md:order-1 text-3xl font-bold">
             <span>Creative Hero</span>
           </div>
-          <div className="text-gray-500 order-3 w-full md:w-auto md:order-2">
+          <div className="text-[#ffffff] order-3 w-full md:w-auto md:order-2">
             <ul className="flex font-semibold justify-between">
-              <li className="md:px-4 md:py-2 hover:text-[#061E43]">
+              <li className="md:px-3  md:py-2 hover:text-[#8BD826]">
                 <NavLink
                   exact
                   to="/"
-                  className={({ isActive }) => (isActive ? "text-[#061E43]" : "")}
+                  className={({ isActive }) => (isActive ? "text-[#8BD826]" : "")}
                 >
                   Home
                 </NavLink>
               </li>
               {user && (
-                <li className="md:px-4 md:py-2 hover:text-[#061E43]">
+                <li className="md:px-4 md:py-2 hover:text-[#8BD826]">
                   <NavLink
                     to="/dashbord"
                     className={({ isActive }) =>
-                      isActive ? "text-[#061E43]" : ""
+                      isActive ? "text-[#8BD826]" : ""
                     }
                   >
                     Dashbord
                   </NavLink>
                 </li>
               )}
-              <li className="md:px-4 md:py-2 hover:text-[#061E43]">
+              <li className="md:px-4 md:py-2 hover:text-[#8BD826]">
                 <NavLink
                   to="/course/all"
                   className={({ isActive }) =>
-                    isActive ? "text-[#061E43]" : ""
+                    isActive ? "text-[#8BD826]" : ""
                   }
                 >
                   Course
                 </NavLink>
               </li>
-              <li className="md:px-4 md:py-2 hover:text-[#061E43]">
+              <li className="md:px-4 md:py-2 hover:text-[#8BD826]">
                 <NavLink
                   to="/instractor"
                   className={({ isActive }) =>
-                    isActive ? "text-[#061E43]" : ""
+                    isActive ? "text-[#8BD826]" : ""
                   }
                 >
                   Instractor
                 </NavLink>
               </li>
-              <li className="relative md:px-4 md:py-2 text-xl hover:text-[#061E43]">
+              <li className="relative md:px-4 md:py-2 text-xl hover:text-[#8BD826]">
                 <NavLink
-                  to="/dashbord/selectcourse"
+                  to="dashbord/select"
                   className={({ isActive }) =>
-                    isActive ? "text-[#061E43]" : ""
+                    isActive ? "text-[#8BD826]" : ""
                   }
                 >
                   <FaShoppingCart />
@@ -89,7 +112,7 @@ const Navber = () => {
             <div className="flex gap-2">
               {!user ? (
                 <Link to="/login">
-                  <button className="px-4 py-2 bg-[#061E43] hover:bg-[#061E43] text-gray-50 rounded-xl flex items-center gap-2">
+                  <button className="px-4 py-2 bg-[#8BD826] hover:bg-[#8BD826] text-[#ffffff] rounded-xl flex items-center gap-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5"
@@ -108,7 +131,7 @@ const Navber = () => {
               ) : (
                 <button
                   onClick={handleLogOut}
-                  className="px-4 py-2 bg-[#061E43] hover:bg-[#061E43] text-gray-50 rounded-xl flex items-center gap-2"
+                  className="px-4 py-2 bg-[#8BD826] hover:bg-[#8BD826] text-[#ffffff] rounded-xl flex items-center gap-2"
                 >
                   <span>Logout</span>
                 </button>
@@ -117,7 +140,7 @@ const Navber = () => {
           </div>
         </div>
       </nav>
-    </div>
+    </>
   );
 };
 
