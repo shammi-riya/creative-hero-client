@@ -20,22 +20,22 @@ const InstractorHome = () => {
 
 
     return (
-       <div className="bg-slate-100">
+       <div className="">
         <div className="relative">
             <img src={img1} alt="" />
            
               <p className="absolute top-1/2 left-[40%] text-5xl font-bold text-blue-500">  Our instractor</p>
            
         </div>
-         <div className="bg-[#f8f9fa] grid lg:grid-cols-4 my-32 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 lg:px-32 px-5">
+         <div className=" grid lg:grid-cols-4 my-32 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 lg:px-32 px-5">
         {instructors.map((singleInstractor) => (
-          <div className="bg-white flex flex-col items-center relative group w-full p-4 rounded-md overflow-hidden" key={singleInstractor._id}>
+          <div className="shadow-2xl text-white flex flex-col items-center relative group w-full p-4 rounded-md overflow-hidden" key={singleInstractor._id}>
             <img className="h-36 w-36 rounded-full mx-auto" src={singleInstractor?.image} alt="" />
             <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-y-3">
               <p className="text-white text-center p-2 flex gap-2">
-                <span className="p-2 bg-blue-400 text-white rounded-full"><FaFacebook></FaFacebook></span>
-                <span className="p-2 bg-blue-400 text-white rounded-full"><FaInstagram></FaInstagram></span>
-                <span className="p-2 bg-blue-400 text-white rounded-full"><FaLinkedin></FaLinkedin></span>
+                <span className="p-2 bg-[#8BD826] text-white rounded-full"><FaFacebook></FaFacebook></span>
+                <span className="p-2 bg-[#8BD826] text-white rounded-full"><FaInstagram></FaInstagram></span>
+                <span className="p-2 bg-[#8BD826] text-white rounded-full"><FaLinkedin></FaLinkedin></span>
               </p>
             </div>
             <p className="text-center mt-2 font-bold ">{singleInstractor?.userName}</p>

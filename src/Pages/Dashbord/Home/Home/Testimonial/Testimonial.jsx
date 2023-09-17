@@ -1,7 +1,6 @@
-import { FaStar } from 'react-icons/fa';
-import { BiSolidQuoteSingleRight } from 'react-icons/bi';
+
 import { useEffect, useState } from 'react';
-import Marquee from "react-fast-marquee";
+import Slider from 'react-slick';
 
 const Testimonial = () => {
     const [feedbackData, setFeedbackData] = useState([]);
@@ -20,54 +19,104 @@ const Testimonial = () => {
         fetchData();
     }, []);
 
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 400,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 0,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        cssEase: "linear",
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+
+                    infinite: true,
+                    autoplay: true,
+                    speed: 2000,
+                    autoplaySpeed: 2000,
+                    cssEase: "linear"
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
+
     return (
         <div className='my-36 lg:px-32 px-4'>
             <div className='text-center my-10 text-white'>
                 <h3 className='text-2xl font-semibold'>What Students</h3>
                 <h1 className='text-3xl font-bold'>Think and Say About Creative Hero</h1>
             </div>
-            <Marquee>
-                <div className='flex justify-between items-center flex-nowrap gap-2 lg:gap-8 w-full  lg:max-w-7xl mx-auto'>
+           
+                <div className='text-[#fff]'>
+                <Slider {...settings}>
 
                     {feedbackData.map(feedback => (
-                        <div className='w-full'
-                            key={feedback._id}>
-
-                            <div className='bg-gray-100 p-5 rounded space-y-5 h-96  w-full'>
-                                <div className='flex justify-between w-full'>
-                                    <div className='flex gap-3'>
-                                        <img className='h-14 w-14 rounded-full' src={feedback?.userImage} alt='' />
-                                        <div>
-                                            <h1 className='text-2xl font-semibold'>{feedback?.userName}</h1>
-                                            <p>Student</p>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className='flex text-4xl p-0'>
-                                            <BiSolidQuoteSingleRight />
-                                            <BiSolidQuoteSingleRight />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <p className='text-2xl font-semibold text-blue-400'>{feedback?.feedback}</p>
-                                        <p>{feedback?.description.slice(0, 220)}..</p>
-                                    </div>
-                                    <div className='flex gap-2 my-3 text-xl text-yellow-200'>
-                                        <FaStar />
-                                        <FaStar />
-                                        <FaStar />
-                                        <FaStar />
-                                    </div>
-                                </div>
+                        <div key={feedback._id}
+                        className="relative overflow-hidden shadow-2xl ">
+                        <div className="max-w-6xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16 mx-auto">                       
+                          <div className="lg:grid text-[#fff] lg:grid-cols-6 lg:gap-8 lg:items-center">
+                            <div className="hidden lg:block lg:col-span-2">
+                              <img className="rounded-xl" src={feedback.userImage} alt="Image Description"/>
                             </div>
-
+                          
+                      
+                            <div className="lg:col-span-4">
+                             
+                              <blockquote>
+                               <p className='text-3xl font-bold'>{feedback.feedback}</p>
+                                <p className="text-lg font-medium  lg:text-xl lg:leading-normal ">
+                                  {feedback.description}
+                                </p>
+                      
+                                <footer className="mt-6">
+                                  <div className="flex items-center">
+                                    <div className="lg:hidden flex-shrink-0">
+                                      <img className="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1671726203390-cdc4354ee2eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80" alt="Image Description"/>
+                                    </div>
+                                    <div className="ml-4 lg:ml-0">
+                                      <p className="font-medium">
+                                        {feedback.userName}
+                                      </p>
+                                      <p className="text-sm ">
+                                        Head of Finance
+                                      </p>
+                                    </div>
+                                  </div>
+                                </footer>
+                              </blockquote>
+                              
+                            </div>
+                           
+                          </div>
+                          
                         </div>
+                      </div>
                     ))}
+                    </Slider>
 
                 </div>
-            </Marquee>
+            
         </div>
     );
 };

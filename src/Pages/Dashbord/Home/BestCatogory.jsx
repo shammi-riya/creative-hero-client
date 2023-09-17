@@ -12,8 +12,8 @@ const BestCategory = () => {
 
     const settings = {
         dots: true,
-        infinite: false,
-        speed: 500,
+        infinite: true,
+        speed: 300,
         slidesToShow: 3,
         slidesToScroll: 3,
         initialSlide: 0,
@@ -61,12 +61,12 @@ const BestCategory = () => {
                 <h2 className="text-4xl font-bold">Explore Top Categories</h2>
                 <Button>View All Category</Button>
             </div>
-            <div className="lg:w-[60%] lg:px-0 px-5 lg:my-0 my-5 w-full ">
+            <div className="lg:w-[60%] lg:px-0 px-5  lg:my-0 my-5 w-full ">
                 <Slider {...settings}>
 
                     {categories.map((category, index) => (
                         <div key={index} 
-                            className="shadow-2xl p-5 text-center shadow-current">
+                            className="shadow-2xl m-2 p-5 text-center shadow-current">
                             <div className="space-y-3">
                                 <span className="hover:scale-110 duration-200 flex justify-center items-center text-4xl">
                                     {category.icon}

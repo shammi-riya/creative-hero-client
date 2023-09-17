@@ -22,8 +22,6 @@ const TopFeatureCourse = () => {
 
 
 
-    
-
 
     const handleButtonClick = (index) => {
         setActiveButton(index);
@@ -121,7 +119,7 @@ const TopFeatureCourse = () => {
                                             <p className='text-md'>Price: ${course.price}</p>
                                         </div>
                                         <Link to={`/courses/${course._id}`}>
-                                        <button className='bg-[#8BD826] hover:border-2 border-[#ffff] text-[#ffff]'>View Details</button></Link>
+                                        <button className='bg-[#8BD826] hover:bg-[#83a259] hover:border-2 border-[#ffff] text-[#ffff]'>View Details</button></Link>
                                     </div>
                                 </div>
                             </div>

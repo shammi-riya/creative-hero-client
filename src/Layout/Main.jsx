@@ -6,7 +6,7 @@ import Navber from "../Pages/Shared/Navber";
 
 const Main = () => {
     return (
-        <div className="">
+        <div className="bg-[#1B1B1B]">
             <Navber></Navber>
            <Outlet></Outlet>
             <Footer></Footer>

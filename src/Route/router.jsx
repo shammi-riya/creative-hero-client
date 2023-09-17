@@ -66,6 +66,7 @@ const router = createBrowserRouter([
         path: "/instractor",
         element: <InstractorHome></InstractorHome>
       },
+      
     ],
   },
   {
