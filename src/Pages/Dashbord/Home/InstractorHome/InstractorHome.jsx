@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaStar } from "react-icons/fa";
-import img1 from '../../../../assets/instractor.jpg'
+
 import useAxiosSecure from "../../../../Hook/useAxiosSecuire";
 
 const InstractorHome = () => {
@@ -20,14 +20,10 @@ const InstractorHome = () => {
 
 
     return (
-       <div className="">
-        <div className="relative">
-            <img src={img1} alt="" />
-           
-              <p className="absolute top-1/2 left-[40%] text-5xl font-bold text-blue-500">  Our instractor</p>
-           
-        </div>
-         <div className=" grid lg:grid-cols-4 my-32 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 lg:px-32 px-5">
+       <div className=" py-32 ">
+        <h4 className="text-3xl my-4 font-bold text-center text-white">Our Instractor</h4>
+       
+         <div className=" grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 lg:px-32 px-5">
         {instructors.map((singleInstractor) => (
           <div className="shadow-2xl text-white flex flex-col items-center relative group w-full p-4 rounded-md overflow-hidden" key={singleInstractor._id}>
             <img className="h-36 w-36 rounded-full mx-auto" src={singleInstractor?.image} alt="" />
